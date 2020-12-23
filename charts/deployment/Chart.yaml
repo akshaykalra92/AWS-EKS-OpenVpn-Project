@@ -1,0 +1,7 @@
+name: deployment
+version: 1.0.0
+apiVersion: v2
+appVersion: 0.0.1
+description: Kube-hello-world
+maintainers:
+  - name: Akshay kalra

@@ -1,0 +1,9 @@
+name: hello-kubernetes
+
+image:
+  name: paulbouwer/hello-kubernetes
+  tag: 1.8
+
+ports:
+   nodeport: 8080
+   port: 80
