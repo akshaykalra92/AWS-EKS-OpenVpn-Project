@@ -12,3 +12,20 @@ autoscaling_minimum_size_by_az           = 1
 autoscaling_maximum_size_by_az           = 10
 autoscaling_average_cpu                  = 30
 namespaces = "web-app"
+instance_type_ec2 = "t2.small"
+vpc_name = "teraki-vpc"
+cidr = "10.0.0.0/16"
+# If we want to create route53 service and assign a domain name to load balancer.
+#dns_base_domain               = "eks.teraki.cl"
+#ingress_gateway_chart_name    = "nginx-ingress"
+#ingress_gateway_chart_repo    = "https://helm.nginx.com/stable"
+#ingress_gateway_chart_version = "0.5.2"
+#ingress_gateway_annotations = {
+#  "controller.service.httpPort.targetPort"                                                                    = "http",
+#  "controller.service.httpsPort.targetPort"                                                                   = "http",
+#  "controller.service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-backend-protocol"        = "http",
+#  "controller.service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-ssl-ports"               = "https",
+#  "controller.service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-connection-idle-timeout" = "60",
+#  "controller.service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-type"                    = "elb"
+#}
+#deployments_subdomains = ["sample", "api"]

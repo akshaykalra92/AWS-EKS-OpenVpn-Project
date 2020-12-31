@@ -59,4 +59,63 @@ variable "namespaces" {
   description = "namespaces to be created in our EKS Cluster."
 }
 
+variable "ansible_user" {
+  type        = string
+  default = "ubuntu"
+}
+
+variable "name" {
+  description = "Unique name for the key, should also be a valid filename. This will prefix the public/private key."
+  default     = "vpn"
+  type        = string
+}
+
+variable "path" {
+  description = "Path to a directory where the public and private key will be stored."
+  default     = "."
+  type        = string
+}
+
+variable "instance_type_ec2" {
+  description = "Instance type of ec2."
+  default     = "t2.small"
+  type        = string
+}
+
+variable "vpc_name" {
+  description = "vpc name"
+  default     = ""
+  type        = string
+}
+
+variable "cidr" {
+  description = "VPC cidr"
+  default     = ""
+  type        = string
+}
+
+#variable "dns_base_domain" {
+#  type        = string
+#  description = "DNS Zone name to be used from EKS Ingress."
+#}
+#variable "ingress_gateway_chart_name" {
+#  type        = string
+#  description = "Ingress Gateway Helm chart name."
+#}
+#variable "ingress_gateway_chart_repo" {
+#  type        = string
+#  description = "Ingress Gateway Helm repository name."
+#}
+#variable "ingress_gateway_chart_version" {
+#  type        = string
+#  description = "Ingress Gateway Helm chart version."
+#}
+#variable "ingress_gateway_annotations" {
+#  type        = map(string)
+#  description = "Ingress Gateway Annotations required for EKS."
+#}
+#variable "deployments_subdomains" {
+#  type        = list(string)
+#  description = "List of subdomains to be routed to Kubernetes Services."
+#}
 

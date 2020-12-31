@@ -29,8 +29,8 @@ module "eks-cluster" {
   workers_additional_policies = [aws_iam_policy.worker_policy.arn]
   subnets = module.vpc.private_subnets
   vpc_id  = module.vpc.vpc_id
-  wait_for_cluster_cmd          = "until curl -k -s $ENDPOINT/healthz >/dev/null; do sleep 4; done"  # Remove this line if you are running terraform from linux or mac.
-  wait_for_cluster_interpreter = ["C:/Program Files/Git/bin/sh.exe", "-c"]  # Remove this line if you are running terraform from linux or mac.
+  wait_for_cluster_cmd          = "until curl -k -s $ENDPOINT/healthz >/dev/null; do sleep 4; done"
+#  wait_for_cluster_interpreter = ["C:/Program Files/Git/bin/sh.exe", "-c"]  # Remove this line if you are running terraform from linux or mac.
 
   node_groups = {
     first = {

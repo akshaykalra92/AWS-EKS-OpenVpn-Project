@@ -12,7 +12,9 @@ As soon as cluster is ready, you should find a kubeconfig_teraki-eks-cluster kub
 
 Once everything is deployed, RUN: 
 KUBECONFIG=./kubeconfig_teraki-eks-cluster kubectl get nodes --all-namespaces
-KUBECONFIG=./kubeconfig_teraki-eks-cluster kubectl describe ingress hello-kubernetes
+KUBECONFIG=./kubeconfig_teraki-eks-cluster kubectl describe ingress hello-kubernetes -n webapp
+
+Download the openvpn.ovpn client file which will be present in OpenVPN folder once terraform finishes and load that file to your openvpn client and connect it.
 
 You will see the URL of application(Address:). hit that URL in your browser and you can see your application is running fine.
 

@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: {{ .Values.name }}
   annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/scheme: internal
     kubernetes.io/ingress.class: alb
     kubernetes.io/cluster: teraki-eks-cluster
 spec:
