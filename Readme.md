@@ -12,9 +12,15 @@ As soon as cluster is ready, you should find a kubeconfig_teraki-eks-cluster kub
 
 Once everything is deployed, RUN: 
 KUBECONFIG=./kubeconfig_teraki-eks-cluster kubectl get nodes --all-namespaces
-KUBECONFIG=./kubeconfig_teraki-eks-cluster kubectl describe ingress hello-kubernetes -n webapp
+KUBECONFIG=./kubeconfig_teraki-eks-cluster kubectl describe ingress hello-kubernetes -n web-app
+
+if you see any error in ingress it is due to LB is starting right now when terraform is trying to deploy the ingress. Do the follow steps if you dont see the URLon ingress.
+1) List the helm charts (KUBECONFIG=./kubeconfig_teraki-eks-cluster helm ls  -n web-app)
+2) Delete the Helm chart ( KUBECONFIG=./kubeconfig_teraki-eks-cluster helm delete deployment  -n web-app)
+3) Go inside helm chart folder and redeploy the helm chart (KUBECONFIG=../.././kubeconfig_teraki-eks-cluster helm install . --generate-name  -n web-app)
+4  Now describe the ingress for URL:  (KUBECONFIG=../.././kubeconfig_teraki-eks-cluster kubectl describe ingress  -n web-app). 
 
 Download the openvpn.ovpn client file which will be present in OpenVPN folder once terraform finishes and load that file to your openvpn client and connect it.
 
-You will see the URL of application(Address:). hit that URL in your browser and you can see your application is running fine.
+You will see the URL of application(Address:). hit that URL in your browser and you can see your application is running fine. Connect the VPN first before hitting the URL.
 
