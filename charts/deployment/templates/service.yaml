@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ .Values.name }}
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: {{ .Values.ports.port }}
       targetPort: {{ .Values.ports.nodeport }}
