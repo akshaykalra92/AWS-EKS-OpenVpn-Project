@@ -1,20 +1,27 @@
-You can provision a basic EKS cluster with VPC using Terraform with the following commands:
+# Deploy AWS EKS with open VPN 
 
-terraform init
-terraform plan
-terraform apply
+## Getting Started
 
-It might take a while for the cluster to be creates (up to 15-20 minutes).
+**Clone the Repository:**
 
-1) Setting up IAM policies for the ALB Ingress Controller in EKS with Terraform, You can provision an EKS cluster with the right policies for the ALB Ingress Controller with
-2) Integrating the Helm provider with Terraform and EKS so you can provision an EKS cluster and install Helm packages at the same time. The current code automatically installs the ALB Ingress Controller with Helm.
-As soon as cluster is ready, you should find a kubeconfig_teraki-eks-cluster kubeconfig file in the current directory.
+  **You can provision a basic EKS cluster with VPC using Terraform with the following commands:**
 
-Once everything is deployed, RUN: 
+   terraform init
+   terraform plan
+   terraform apply
+
+   It might take a while for the cluster to be creates (up to 15-20 minutes).
+
+   1) Setting up IAM policies for the ALB Ingress Controller in EKS with Terraform, You can provision an EKS cluster with the right policies for the ALB Ingress Controller with
+   2) Integrating the Helm provider with Terraform and EKS so you can provision an EKS cluster and install Helm packages at the same time. The current code automatically installs the ALB Ingress Controller with Helm.
+   As soon as cluster is ready, you should find a kubeconfig_teraki-eks-cluster kubeconfig file in the current directory.
+
+**Once everything is deployed, RUN:** 
+
 KUBECONFIG=./kubeconfig_teraki-eks-cluster kubectl get nodes --all-namespaces
 KUBECONFIG=./kubeconfig_teraki-eks-cluster kubectl describe ingress hello-kubernetes -n web-app
 
-if you see any error in ingress it is due to LB is starting right now when terraform is trying to deploy the ingress. Do the follow steps if you dont see the URLon ingress.
+If you see any error in ingress it is due to LB is starting right now when terraform is trying to deploy the ingress. Do the follow steps if you dont see the URLon ingress.
 1) List the helm charts (KUBECONFIG=./kubeconfig_teraki-eks-cluster helm ls  -n web-app)
 2) Delete the Helm chart ( KUBECONFIG=./kubeconfig_teraki-eks-cluster helm delete deployment  -n web-app)
 3) Go inside helm chart folder and redeploy the helm chart (KUBECONFIG=../.././kubeconfig_teraki-eks-cluster helm install . --generate-name  -n web-app)
